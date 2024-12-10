@@ -1,6 +1,7 @@
 import User from '../models/dbmodels.js'
 import bcrypt from 'bcryptjs'
 import generateTokenandSetCookie from '../utils/generatewebToken.js';
+//import bcryptjs from 'bcryptjs';
 export const login=async(req,res)=>{
     console.log("login page");
     try {
