@@ -13,7 +13,7 @@ export const SocketContextProvider=({children})=>{
     const {authuser}=useAuthContext();
     useEffect(()=>{
         if(authuser){
-            const socket =io("http://localhost:8000",{
+            const socket =io("https://onchat-productio.onrender.com",{
                 query:{
                     userId: authuser._id
                 }
