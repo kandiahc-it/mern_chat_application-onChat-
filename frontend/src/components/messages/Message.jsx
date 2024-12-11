@@ -5,14 +5,15 @@ import useConversation from '../../zustand/useConversation';
 const Message = ({message}) => {
     console.log();
     const {authuser} = useAuthContext();
-    console.log(authuser)
+    // console.log(authuser)
     const {selectedConversation}=useConversation();
     const fromMe = message.senderId===authuser._id;
     const chatClassName= fromMe? 'chat-end' : 'chat-start';
     const time=extractTime(message.createdAt);
-    const profilePic=authuser?authuser.profilePic: selectedConversation.profilePic;
+    const profilePic=fromMe?authuser.profilePic: selectedConversation.profilePic;
     const bubbleBgColor=fromMe? 'bg-blue-500':"";
     
+    const shakeClass= message.shouldShake?"shake":"";
   return (
     <div className={`chat ${chatClassName}`}>
         <div className='chat-image avatar'>
@@ -22,7 +23,7 @@ const Message = ({message}) => {
                 src={profilePic} />
             </div>
         </div>
-        <div className={`chat-bubble text-white bg-blue-500 ${bubbleBgColor} pb-2`}>
+        <div className={`chat-bubble text-white bg-blue-500 ${bubbleBgColor} ${shakeClass} pb-2`}>
              {message.message}
         </div>
         <div className='chat-footer opacity-50 text-xs flex gap-1 items-center'>{time}</div>

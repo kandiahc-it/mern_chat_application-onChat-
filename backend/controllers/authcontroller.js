@@ -2,30 +2,36 @@ import User from '../models/dbmodels.js'
 import bcrypt from 'bcryptjs'
 import generateTokenandSetCookie from '../utils/generatewebToken.js';
 //import bcryptjs from 'bcryptjs';
-export const login=async(req,res)=>{
-    console.log("login page");
+export const login = async (req, res) => {
+    // console.log("login page");
     try {
-        const {userName,password} =req.body;
-        const user= await User.findOne({userName})
-        const isPasswordCorrect= await bcrypt.compare(password,user?.password || " ");
+        const { userName, password } = req.body;
 
-        if(!user || !isPasswordCorrect){
-            res.status(400).json({error:"Invalid Username or password"});
+        // Find the user
+        const user = await User.findOne({ userName });
+        const isPasswordCorrect = await bcrypt.compare(password, user?.password || "");
+
+        // If user or password is invalid, send a 400 response and stop execution
+        if (!user || !isPasswordCorrect) {
+            return res.status(400).json({ error: "Invalid Username or Password" });
         }
-        generateTokenandSetCookie(user._id, res),
-        res.status(200).json({
-            _id:user._id,
-            fullName: user.fullName,
-            userName:user.userName,
-            profilePic: user.profilePic
-        });
 
-        
+        // Generate token and set cookie
+        generateTokenandSetCookie(user._id, res);
+
+        // Send user data response
+        return res.status(200).json({
+            _id: user._id,
+            fullName: user.fullName,
+            userName: user.userName,
+            profilePic: user.profilePic,
+        });
     } catch (error) {
-        console.log("Error in login controller", error.message)
-        res.status(500).json({error:"Internal server Error"})
+        console.log("Error in login controller", error.message);
+        return res.status(500).json({ error: "Internal Server Error" });
     }
-}
+};
+
 export const logout= (req,res)=>{
 
     //console.log("logout page");

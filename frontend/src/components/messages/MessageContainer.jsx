@@ -18,10 +18,14 @@ const MessageContainer = () => {
     ):(
         
         <>
-        <div className='bg-slate-500 px-4 py-2 mb-2'>
-            <span className='label-text'>To:</span>
-            <span className='text-gray-900 font-bold'>{selectedConversation.fullName}</span>
-                </div>
+        <div className="bg-gray-800 px-4 py-2 mb-2 flex items-center gap-3">
+  <img 
+    src={selectedConversation.profilePic || '/default-profile.png'} 
+    alt="Profile" 
+    className="w-10 h-10 rounded-full object-cover" 
+  />
+  <span className="text-white font-bold">{selectedConversation.fullName}</span>
+</div>
                 <Messages/>
                 <MessageInput/>
                 </>

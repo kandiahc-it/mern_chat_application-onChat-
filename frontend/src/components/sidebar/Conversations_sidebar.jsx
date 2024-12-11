@@ -4,7 +4,7 @@ import Conversation from "./Conversation"
 
 const Conversations_sidebar = () => {
   const {loading,conversation}=useGetConversations();
-  console.log(conversation);
+  // console.log(conversation);
   return (
     <div className='py-2 flex flex-col overflow-auto'>
       {conversation.map((item,index)=>(
