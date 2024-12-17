@@ -28,12 +28,12 @@ const Signup = () => {
     <div  className='flex  items-center justify-center min-w-96  min-h-screen mx-auto'>
       <div className='w-full max-w-md p-6 rounded-lg shadow-md bg-clip-padding backdrop-filter backdrop-blur-lg'>
       <h1 className='text-3xl font-semibold text-center text-gray-300'>Sign Up
-              <span className='text-blue-500'> ChatApp</span>
+              <span className='text-blue-500'> OnChat</span>
             </h1>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label className='label p-2'>
-                        <span className='text-base label-text'>Full Name</span>
+                        <span className='text-base label-text  text-gray-300'>Full Name</span>
                     </label>
                     <input type='text' placeholder='Enter Your Name (Eg:Ragavi)' className='w-full input input-bordered h-18'
                     value={inputs.fullName }
@@ -42,7 +42,7 @@ const Signup = () => {
 
                 <div>
                     <label className='label p-2'>
-                        <span className='text-base label-text'>User Name</span>
+                        <span className='text-base label-text  text-gray-300'>User Name</span>
                     </label>
                     <input type='text' placeholder='Enter Your User Name' className='w-full input input-bordered h-18'
                     value={inputs.userName }
@@ -51,7 +51,7 @@ const Signup = () => {
 
                 <div>
                     <label className='label '>
-                        <span className='text-base label-text'>Password</span>
+                        <span className='text-base label-text  text-gray-300'>Password</span>
                     </label>
                     <input type='password' placeholder='Enter Your Pasword' className='w-full input input-bordered h-18'
                     value={inputs.password}
@@ -60,7 +60,7 @@ const Signup = () => {
 
                 <div>
                     <label className='label '>
-                        <span className='text-base label-text'>Confirm Password</span>
+                        <span className='text-base label-text  text-gray-300'>Confirm Password</span>
                     </label>
                     <input type='password' placeholder='Enter Your Pasword Again!!' className='w-full input input-bordered h-18'
                     value={inputs.confirmPassword}
@@ -69,7 +69,7 @@ const Signup = () => {
                 
                 <GenderCheckbox onCheckboxChange={handlegendercheckboxchange} selectedGender={inputs.gender}/>
 
-                <Link to={'/login'} className='text-5m hover:underline hover:text-blue-600 mt-2 inline-block'>
+                <Link to={'/login'} className='text-5m hover:underline hover:text-blue-600 mt-2 inline-block  text-gray-300'>
                     Already have an account?
                 </Link>
 

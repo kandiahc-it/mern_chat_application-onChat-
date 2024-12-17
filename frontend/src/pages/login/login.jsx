@@ -15,12 +15,12 @@ const Login = () => {
     <div className='flex  items-center justify-center min-w-96  min-h-screen mx-auto'>
         <div className='w-full max-w-md p-6 rounded-lg shadow-md bg-clip-padding backdrop-filter backdrop-blur-lg'>
             <h1 className='text-3xl font-semibold text-center text-gray-300'>Login
-              <span className='text-blue-500'> ChatApp</span>
+              <span className='text-blue-500'> OnChat</span>
             </h1>
             <form onSubmit={handleSubmit}>
               <div>
               <label className='label p-2'>
-              <span className='text-base label-text'>Username</span>
+              <span className='text-base label-text  text-gray-300'>Username</span>
               </label>
               <input type='text' placeholder='Enter username' className='w-full input input-bordered h-10'
               value={username}
@@ -29,7 +29,7 @@ const Login = () => {
               </div>
               <div>
               <label className='label p-2'>
-              <span className='text-base label-text'>Password</span>
+              <span className='text-base label-text  text-gray-300'>Password</span>
               </label>
               <input type='text' placeholder='Enter password' className='w-full input input-bordered h-10'
               value={password}
@@ -37,7 +37,7 @@ const Login = () => {
               /> 
               
               </div>
-              <Link to={'/signup'} className='text-5m hover:underline hover:text-blue-600 mt-2 inline-block'>
+              <Link to={'/signup'} className='text-5m hover:underline hover:text-blue-600 mt-2 inline-block  text-gray-300'>
                 {"Don't"} have an account?
               </Link>
               <div>
